@@ -9,3 +9,5 @@ parameters:
                 - "dev"
         phpcsfixer:
             level: psr2
+        phpunit:
+          config_file: "src/dev/tests/unit/phpunit.xml"
