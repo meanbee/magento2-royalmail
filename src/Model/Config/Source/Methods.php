@@ -5,7 +5,6 @@ namespace Meanbee\MagentoRoyalmail\Model\Config\Source;
 use \Magento\Framework\Option\ArrayInterface;
 use Meanbee\MagentoRoyalmail\Model\Carrier;
 
-
 /**
  * Class Methods Backend system config field renderer
  */

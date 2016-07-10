@@ -75,8 +75,7 @@ class Carrier extends AbstractCarrier implements CarrierInterface
         Rounder $rounder,
         LibCarrier $carrier,
         array $data = []
-    )
-    {
+    ) {
         $this->rateResultFactory = $rateResultFactory;
         $this->rateMethodFactory = $rateMethodFactory;
         $this->rounder = $rounder;
