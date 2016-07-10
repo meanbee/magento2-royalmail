@@ -1,5 +1,5 @@
 /magento
-/vendor
+/src/vendor
 /coverage
 /composer.env
 /current.env
