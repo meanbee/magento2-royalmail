@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="meanbee_royalmail" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Meanbee Royal Mail</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled for Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="allowed_methods" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allowed Methods</label>
+                    <source_model>Meanbee\MagentoRoyalmail\Model\Config\Source\Methods</source_model>
+                    <comment>Select the shipping options that you would like to appear to the customer as an option.  Any options that are not selected will not be presented to the customer. Hold CTRL + Click on Windows or CMD + Click on Mac to select multiple shipping methods. Alternately, press CTRL or CMD + A to select all shipping methods.</comment>
+                </field>
+                <field id="rounding_rule" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Rounding Rule</label>
+                    <source_model>Meanbee\MagentoRoyalmail\Model\Config\Source\RoundingRule</source_model>
+                    <comment>Select the rule that you would like to apply to the price calculate by the module before displaying it to the customer</comment>
+                </field>
+                <field id="parcel_size" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>First/Second Class Parcel Size</label>
+                    <source_model>Meanbee\MagentoRoyalmail\Model\Config\Source\ParcelSize</source_model>
+                    <comment>Select the parcel size you'd like to use for calculating the price of First and Second class parcels.  If you select "Small", then the "Small Parcel" price will be used up until 2kg.  After 2kg the medium parcel price will always be used.</comment>
+                </field>
+                <field id="handling_fee" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Handling Fee</label>
+                    <comment>If you specify a handling fee (in the base currency) then it will added to the calculated cost of postage</comment>
+                </field>
+                <field id="handling_type" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Handling Type</label>
+                    <source_model>Magento\Shipping\Model\Source\HandlingType</source_model>
+                </field>
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Displayed Error Message</label>
+                </field>
+                <field id="showmethod" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show Method if Not Applicable</label>
+                    <frontend_class>shipping-skip-hide</frontend_class>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

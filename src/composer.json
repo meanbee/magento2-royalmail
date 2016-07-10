@@ -1,0 +1,42 @@
+{
+  "name": "meanbee/module-royalmail",
+  "description": "A RoyalMail shipping integration for Magento 2.",
+  "type": "magento2-module",
+  "version": "0.1.0",
+  "license": [
+    "OSL-3.0"
+  ],
+  "repositories": {
+    "magento": {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  },
+  "minimum-stability": "alpha",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "zendframework/zend-json": "^2.4.0",
+    "magento/magento2-base": "^2.0.0",
+    "magento/module-config": "^100.0.0",
+    "magento/module-store": "^100.0.0",
+    "magento/module-shipping": "^100.0.0",
+    "magento/module-quote": "^100.0.0",
+    "magento/framework": "^100.0.0",
+    "meanbee/royalmail-php-library": "^2.1.0"
+  },
+  "require-dev": {
+    "phpro/grumphp": "0.7.2"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Meanbee\\MagentoRoyalmail\\": ""
+    }
+  },
+  "authors": [
+    {
+      "name": "Tom Robertshaw",
+      "email": "tom.robertshaw@meanbee.com"
+    }
+  ]
+}
