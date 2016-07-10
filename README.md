@@ -42,6 +42,11 @@ cd src/
 phpunit --coverage-html "coverage/" -c dev/tests/unit/phpunit.xml
 ```
 
+## Notes
+
+If running `composer update` natively in the src/ directory you can run it with the
+`--no-scripts options` to avoid errors.
+
 ## Contributors
 
 [Tom Robertshaw](http://www.twitter.com/bobbyshaw)
