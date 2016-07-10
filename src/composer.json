@@ -25,7 +25,10 @@
     "meanbee/royalmail-php-library": "^2.1.0"
   },
   "require-dev": {
-    "phpro/grumphp": "0.7.2"
+    "phpro/grumphp": "0.7.2",
+    "squizlabs/php_codesniffer" : "~2.3",
+    "roave/security-advisories" : "dev-master@dev",
+    "friendsofphp/php-cs-fixer": "~1.10"
   },
   "autoload": {
     "files": [ "registration.php" ],
