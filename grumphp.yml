@@ -5,5 +5,7 @@ parameters:
         composer: ~
         phpcs:
             tab_width: 4
+            ignore_patterns:
+                - "dev"
         phpcsfixer:
             level: psr2
