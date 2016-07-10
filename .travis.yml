@@ -1,0 +1,17 @@
+language: php
+ 
+php:
+  - 5.6
+  - 7.0
+ 
+before_script:
+  - cd src/
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev --no-scripts
+ 
+script:
+  - phpunit --coverage-clover "coverage.xml" -c dev/tests/unit/phpunit.xml
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.xml
