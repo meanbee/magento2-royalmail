@@ -1,6 +1,6 @@
 {
   "name": "meanbee/module-royalmail",
-  "description": "A RoyalMail shipping integration for Magento 2.",
+  "description": "A Royal Mail shipping integration for Magento 2.",
   "type": "magento2-module",
   "version": "0.1.0",
   "license": [
