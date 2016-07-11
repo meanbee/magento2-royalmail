@@ -2,6 +2,10 @@
 
 An extension to add Royal Mail shipping rates to Magento 2.
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/badges/build.png?b=master)](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/build-status/master)
+
 ## Installation
 
 This module is intended to be installed using composer.  After including this component and enabling it, you can verify it is installed by going the backend at:
