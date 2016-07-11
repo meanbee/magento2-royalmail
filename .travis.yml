@@ -11,6 +11,7 @@ php:
  
 before_script:
   - cd src/
+  - composer config --global http-basic.repo.magento.com $COMPOSER_MAGENTO_USERNAME $COMPOSER_MAGENTO_PASSWORD
   - composer self-update
   - composer install --prefer-source --no-interaction --dev --no-scripts
  
