@@ -99,8 +99,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
             $logger,
             $this->rateResultFactory,
             $this->rateMethodFactory,
-            $this->rounder,
-            $this->libCarrier
+            $this->rounder
         );
         $this->model->setCarrier($this->libCarrier);
     }

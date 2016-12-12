@@ -63,7 +63,6 @@ class Carrier extends AbstractCarrier implements CarrierInterface
      * @param ResultFactory $rateResultFactory
      * @param MethodFactory $rateMethodFactory
      * @param Rounder $rounder
-     * @param LibCarrier $carrier
      * @param array $data
      */
     public function __construct(
@@ -73,7 +72,6 @@ class Carrier extends AbstractCarrier implements CarrierInterface
         ResultFactory $rateResultFactory,
         MethodFactory $rateMethodFactory,
         Rounder $rounder,
-        LibCarrier $carrier,
         array $data = []
     ) {
         $this->rateResultFactory = $rateResultFactory;
