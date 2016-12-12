@@ -79,8 +79,6 @@ class Carrier extends AbstractCarrier implements CarrierInterface
         $this->rateResultFactory = $rateResultFactory;
         $this->rateMethodFactory = $rateMethodFactory;
         $this->rounder = $rounder;
-        $this->carrier = $carrier;
-
         parent::__construct($scopeConfig, $rateErrorFactory, $logger, $data);
     }
 
@@ -108,7 +106,7 @@ class Carrier extends AbstractCarrier implements CarrierInterface
 
         $weight = $this->getPackageWeightInKg($request->getPackageWeight(), $unit);
 
-        $methods = $this->carrier->getRates(
+        $methods = $this->getCarrier()->getRates(
             $request->getDestCountryId(),
             $request->getPackageValue(),
             $weight
@@ -173,7 +171,40 @@ class Carrier extends AbstractCarrier implements CarrierInterface
      */
     public function getMethods()
     {
-        return $this->carrier->getAllMethods();
+        return $this->getCarrier()->getAllMethods();
+    }
+
+    /**
+     * @return LibCarrier
+     */
+    public function getCarrier()
+    {
+        /**
+         * Bug in Magento, when production mode is enabled
+         * if you're trying to inject an external library, magento won't discover
+         * the correct dependencies. Even if it is clearly defined in di.xml.
+         * This odd behaviour results in an instance of ObjectManager being injected.
+         * Solution is to skip DI, and instantiate yourself.
+         *
+         * @TODO Once issue is resolved, we can use the constructor instantiated $carrier object.
+         * @link https://github.com/magento/magento2/issues/6739
+         */
+        if (!$this->carrier) {
+            $this->carrier = new LibCarrier();
+        }
+
+        return $this->carrier;
+    }
+
+    /**
+     * @deprecated
+     * @param $libCarrier
+     * @return $this
+     */
+    public function setCarrier($libCarrier)
+    {
+        $this->carrier = $libCarrier;
+        return $this;
     }
 
     /**

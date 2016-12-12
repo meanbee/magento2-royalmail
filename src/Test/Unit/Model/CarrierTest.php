@@ -102,6 +102,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
             $this->rounder,
             $this->libCarrier
         );
+        $this->model->setCarrier($this->libCarrier);
     }
 
     public function testGetAllowedMethods()
