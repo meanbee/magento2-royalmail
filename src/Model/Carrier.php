@@ -27,7 +27,7 @@ class Carrier extends AbstractCarrier implements CarrierInterface
      *
      * @var string
      */
-    protected $_code = 'meanbee_royalmail';
+    protected $_code = 'rm';
 
     /**
      * Whether this carrier has fixed rates calculation
