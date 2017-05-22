@@ -272,7 +272,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
         $this->scopeConfig
             ->expects($this->at(0))
             ->method('getValue')
-            ->with('carriers/meanbee_royalmail/active')
+            ->with('carriers/rm/active')
             ->willReturn($result);
     }
 
@@ -293,7 +293,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
         $this->scopeConfig
             ->expects($this->at(2))
             ->method('getValue')
-            ->with('carriers/meanbee_royalmail/parcel_size')
+            ->with('carriers/rm/parcel_size')
             ->willReturn($parcelSize);
     }
 
