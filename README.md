@@ -25,6 +25,8 @@ docker-compose run cli /tools/setup.sh
 docker-compose up -d
 ```
 
+The site should now be available from http://magento2-royalmail.docker
+
 We are experimenting with grump in this repository to sniff commits for code format violations.
 
 You can run these manually by:

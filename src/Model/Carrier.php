@@ -1,8 +1,5 @@
 <?php
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
+
 namespace Meanbee\MagentoRoyalmail\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -121,7 +118,19 @@ class Carrier extends AbstractCarrier implements CarrierInterface
         }
 
         /** @var \Meanbee\RoyalMail\Method $method */
-        foreach ($methods as $method) {
+        foreach ($methods as $libMethod) {
+            $method = new \Meanbee\MagentoRoyalmail\Model\Method(
+                $libMethod->getId(),
+                $libMethod->getCode(),
+                $libMethod->getName(),
+                $libMethod->getCountryCode(),
+                $libMethod->getPrice(),
+                $libMethod->getInsuranceValue(),
+                $libMethod->getMinimumWeight(),
+                $libMethod->getMaximumWeight(),
+                $libMethod->getSize()
+            );
+
             if (!array_key_exists($method->getCode(), $allowedMethods)) {
                 continue;
             }
@@ -169,7 +178,20 @@ class Carrier extends AbstractCarrier implements CarrierInterface
      */
     public function getMethods()
     {
-        return $this->getCarrier()->getAllMethods();
+        $libraryMethods = $this->getCarrier()->getAllMethods();
+
+        $methods = array();
+        foreach ($libraryMethods as $libMethodCode => $libMethodLabel) {
+            $method = new \Meanbee\MagentoRoyalmail\Model\Method(
+                $libMethodCode,
+                $libMethodCode,
+                $libMethodLabel
+            );
+
+            $methods[$method->getCode()] = $method->getName();
+        }
+
+        return $methods;
     }
 
     /**

@@ -1,32 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-MAGENTO_ROOT="/magento"
-PHP="/usr/local/bin/php"
-COMPOSER="$PHP /usr/local/bin/composer"
+set -e # Exit on error
 
-MODULE_NAME="Meanbee_RoyalMail"
-COMPOSER_NAME="meanbee/module-royalmail"
-
-MAGENTO_TOOL="magento-command"
+# Install Magento 2 if necessary
+magento-installer
 
 cd $MAGENTO_ROOT
 
-# This is required because Magento doesn't support the path type in composer
-# this is a hack.
+# Add the extension via Composer
+composer config repositories.meanbee_royalmail '{"type": "path", "url": "/src/src", "options": {"symlink": true}}'
 
-$COMPOSER config repositories.meanbee_royalmail path /src/src
+composer require "meanbee/module-royalmail" "@dev"
 
-$COMPOSER require "$COMPOSER_NAME" "*@dev"
+# Workaround for Magento only allowing template paths within the install root
+ln -s /src $MAGENTO_ROOT/src/src
 
-# Required due to us using the "path" type for the repository
-$COMPOSER require "composer/composer" "1.0.0-alpha11 as 1.0.0-alpha10"
-
-$MAGENTO_TOOL module:enable $MODULE_NAME
-
-$MAGENTO_TOOL setup:upgrade
-
-$MAGENTO_TOOL setup:static-content:deploy
-
-$MAGENTO_TOOL cache:flush
-
-$MAGENTO_TOOL deploy:mode:set developer
+# Enable the extension and run migrations
+magento-command module:enable Meanbee_Royalmail
+magento-command setup:upgrade
+magento-command setup:static-content:deploy
+magento-command cache:flush

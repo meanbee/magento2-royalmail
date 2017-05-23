@@ -1,8 +1,4 @@
 <?php
-/***
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
 
 namespace Meanbee\MagentoRoyalmail\Test\Unit\Model;
 
@@ -106,8 +102,8 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
 
     public function testGetAllowedMethods()
     {
-        $methods = "internationalstandardletter,internationalstandardlargeletter";
-        $code = 'internationalstandardletter';
+        $methods = "i11lstdltr,i11lstdlrgltr";
+        $code = 'i11lstdltr';
         $name = "International Standard Letter";
 
         $this->scopeConfig
@@ -125,7 +121,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
 
     public function testGetMethods()
     {
-        $methods = ['internationalstandardletter' => "International Standard Letter"];
+        $methods = ['i11lstdltr' => "International Standard Letter"];
         $this->mockAllMethods($methods);
         $this->assertEquals($methods, $this->model->getMethods());
     }
@@ -143,7 +139,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
 
         $this->mockMethodsConfigured(false);
         $this->mockLibraryRates([$rate]);
-        $this->mockAllMethods(['internationalstandardsmallparcel'
+        $this->mockAllMethods(['i11lstdsmprcl'
             => "International Standard Small Parcel"
         ]);
         $this->mockHasResults(false);
@@ -159,9 +155,9 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
 
         $rate = $this->getMethod('International Standard Medium Parcel');
 
-        $this->mockMethodsConfigured('internationalstandardsmallparcel');
+        $this->mockMethodsConfigured('i11lstdsmprcl');
         $this->mockLibraryRates([$rate]);
-        $this->mockAllMethods(['internationalstandardsmallparcel'
+        $this->mockAllMethods(['i11lstdsmprcl'
             => "International Standard Small Parcel"
         ]);
         $this->mockHasResults(false);
@@ -174,10 +170,10 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockIsActive(true);
         $rate = $this->getMethod('International Standard Small Parcel');
-        $this->mockMethodsConfigured('internationalstandardsmallparcel');
+        $this->mockMethodsConfigured('i11lstdsmprcl');
         $this->mockLibraryRates([$rate]);
         $this->mockParcelSize(ParcelSize::MEDIUM);
-        $this->mockAllMethods(['internationalstandardsmallparcel'
+        $this->mockAllMethods(['i11lstdsmprcl'
             => "International Standard Small Parcel"
         ]);
         $this->mockHasResults(false);
@@ -218,9 +214,9 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockIsActive(true);
         $rate = $this->getMethod('International Standard Small Parcel');
-        $this->mockMethodsConfigured('internationalstandardsmallparcel');
+        $this->mockMethodsConfigured('i11lstdsmprcl');
         $this->mockLibraryRates([$rate]);
-        $this->mockAllMethods(['internationalstandardsmallparcel'
+        $this->mockAllMethods(['i11lstdsmprcl'
             => "International Standard Small Parcel"
         ]);
         $this->mockHasResults(true);
@@ -272,7 +268,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
         $this->scopeConfig
             ->expects($this->at(0))
             ->method('getValue')
-            ->with('carriers/meanbee_royalmail/active')
+            ->with('carriers/rm/active')
             ->willReturn($result);
     }
 
@@ -293,7 +289,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
         $this->scopeConfig
             ->expects($this->at(2))
             ->method('getValue')
-            ->with('carriers/meanbee_royalmail/parcel_size')
+            ->with('carriers/rm/parcel_size')
             ->willReturn($parcelSize);
     }
 
