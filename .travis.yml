@@ -16,7 +16,7 @@ before_script:
   - composer install --prefer-source --no-interaction --dev --no-scripts
  
 script:
-  - phpunit --coverage-clover "coverage.xml" -c dev/tests/unit/phpunit.xml
+  - vendor/bin/phpunit --coverage-clover "coverage.xml" -c dev/tests/unit/phpunit.xml
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
