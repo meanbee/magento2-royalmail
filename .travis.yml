@@ -10,7 +10,7 @@ php:
   - 7.0
 
 before_script:
-  - composer config --global http-basic.repo.magento.com $COMPOSER_MAGENTO_USERNAME $COMPOSER_MAGENTO_PASSWORD
+  - composer config --global --auth http-basic.repo.magento.com $COMPOSER_MAGENTO_USERNAME $COMPOSER_MAGENTO_PASSWORD
   - composer self-update
   - composer install --prefer-source --no-interaction --dev --no-scripts
 
