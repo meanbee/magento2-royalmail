@@ -26,7 +26,7 @@
   "autoload": {
     "files": [ "registration.php" ],
     "psr-4": {
-      "Meanbee\\MagentoRoyalmail\\": ""
+      "Meanbee\\MagentoRoyalmail\\": "src/"
     }
   },
   "authors": [
