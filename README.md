@@ -1,6 +1,9 @@
 ## Synopsis
 
+**NON-FUNCTIONAL & NO LONGER SUPPORTED**
+
 An extension to add Royal Mail shipping rates to Magento 2.
+
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/meanbee/magento2-royalmail/?branch=master)
