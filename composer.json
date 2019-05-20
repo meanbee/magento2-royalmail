@@ -24,9 +24,9 @@
     "friendsofphp/php-cs-fixer": "~1.10"
   },
   "autoload": {
-    "files": [ "registration.php" ],
+    "files": [ "src/registration.php" ],
     "psr-4": {
-      "Meanbee\\MagentoRoyalmail\\": ""
+      "Meanbee\\MagentoRoyalmail\\": "src/"
     }
   },
   "authors": [

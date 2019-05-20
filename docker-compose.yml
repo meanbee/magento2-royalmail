@@ -18,7 +18,7 @@ appdata:
   image: tianon/true
   volumes:
     - ./magento:/var/www/magento
-    - ./:/src
+    - ./:./src
     - ~/.composer/cache:/root/.composer/cache
 
 fpm:
